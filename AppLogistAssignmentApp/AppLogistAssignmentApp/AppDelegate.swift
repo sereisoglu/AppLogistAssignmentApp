@@ -17,7 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow()
         window?.makeKeyAndVisible()
         
-        window?.rootViewController = HomeController()
+        let navigationController = UINavigationController(rootViewController: GroceriesController())
+        
+        window?.rootViewController = navigationController
         
         return true
     }
