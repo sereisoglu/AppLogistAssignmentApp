@@ -7,24 +7,6 @@
 
 import UIKit
 
-final class GroceryCell: UICollectionViewCell {
-    
-    
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-    }
-    
-    func setData() {
-        
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-
 final class GroceriesController: UICollectionViewController {
     
     private let SCREEN_WIDTH = UIScreen.main.bounds.width
@@ -51,7 +33,7 @@ final class GroceriesController: UICollectionViewController {
         
         collectionView.contentInset = .init(top: CONTENT_INSET, left: CONTENT_INSET, bottom: CONTENT_INSET, right: CONTENT_INSET)
         
-        collectionView.registerCell(UICollectionViewCell.self)
+        collectionView.registerCell(GroceryCell.self)
     }
     
     required init?(coder: NSCoder) {
@@ -68,7 +50,7 @@ extension GroceriesController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(for: indexPath)
+        let cell = collectionView.dequeueReusableCell(for: indexPath) as GroceryCell
         cell.backgroundColor = .blue
         return cell
     }
