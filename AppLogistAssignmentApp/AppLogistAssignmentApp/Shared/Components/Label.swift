@@ -12,7 +12,7 @@ final class Label: UILabel {
     private var attributes: [NSAttributedString.Key : Any]
     
     init(
-        text: String?,
+        text: String? = nil,
         type: FontType,
         weight: FontWeight,
         color: Color?,

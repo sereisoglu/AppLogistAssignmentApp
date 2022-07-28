@@ -13,13 +13,12 @@ final class GroceriesController: UICollectionViewController {
     private let SCREEN_WIDTH = UIScreen.main.bounds.width
     private let NUMBER_OF_ITEMS_IN_A_LINE = 3
     private let CONTENT_INSET: CGFloat = 16
-    private let SPACE_BETWEEN_ITEMS: CGFloat = 12
-    private let ASPECT_RATIO_OF_ITEMS: CGFloat = 2 / 3
-    private var ITEM_SIZE: CGSize {
-        let width = (SCREEN_WIDTH - (2 * CONTENT_INSET) - (CGFloat(NUMBER_OF_ITEMS_IN_A_LINE - 1) * SPACE_BETWEEN_ITEMS)) / 3
-        let height = width / ASPECT_RATIO_OF_ITEMS
-        return .init(width: width, height: height)
-    }
+    private let SPACE_BETWEEN_ITEMS_HORIZONTAL: CGFloat = 12
+    private let SPACE_BETWEEN_ITEMS_VERTICAL: CGFloat = 20
+    private lazy var ITEM_SIZE: CGSize = {
+        let width = (SCREEN_WIDTH - (2 * CONTENT_INSET) - (CGFloat(NUMBER_OF_ITEMS_IN_A_LINE - 1) * SPACE_BETWEEN_ITEMS_HORIZONTAL)) / 3
+        return GroceryCell.getSize(width: width)
+    }()
     
     private let viewModel = GroceriesViewModel()
     
@@ -66,7 +65,11 @@ extension GroceriesController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(for: indexPath) as GroceryCell
-        cell.backgroundColor = .blue
+        
+        if let grocery = groceries[safe: indexPath.item] {
+            cell.set(grocery: grocery)
+        }
+        
         return cell
     }
 }
@@ -80,11 +83,11 @@ extension GroceriesController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return SPACE_BETWEEN_ITEMS
+        return SPACE_BETWEEN_ITEMS_VERTICAL
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return SPACE_BETWEEN_ITEMS
+        return SPACE_BETWEEN_ITEMS_HORIZONTAL
     }
 }
 

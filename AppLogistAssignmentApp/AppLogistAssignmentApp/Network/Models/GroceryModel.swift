@@ -14,4 +14,13 @@ struct GroceryModel: Codable {
     var price: Double?
     var currency: String?
     var stock: Int?
+    
+    var formattedPrice: String {
+        guard let price = price,
+              let currency = currency else {
+            return "n/a"
+        }
+        
+        return String(format: "\(currency)%.02f", price)
+    }
 }
