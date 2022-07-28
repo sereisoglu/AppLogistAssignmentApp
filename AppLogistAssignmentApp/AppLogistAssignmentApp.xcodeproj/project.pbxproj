@@ -8,15 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		4AF5FB0A28932DC100082AA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB0928932DC100082AA2 /* AppDelegate.swift */; };
-		4AF5FB0E28932DC100082AA2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB0D28932DC100082AA2 /* ViewController.swift */; };
+		4AF5FB0E28932DC100082AA2 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB0D28932DC100082AA2 /* HomeController.swift */; };
 		4AF5FB1328932DC200082AA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AF5FB1228932DC200082AA2 /* Assets.xcassets */; };
 		4AF5FB1628932DC200082AA2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AF5FB1428932DC200082AA2 /* LaunchScreen.storyboard */; };
+		4AF5FB212893314600082AA2 /* LBTATools in Frameworks */ = {isa = PBXBuildFile; productRef = 4AF5FB202893314600082AA2 /* LBTATools */; };
+		4AF5FB242893317100082AA2 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 4AF5FB232893317100082AA2 /* Alamofire */; };
+		4AF5FB272893318500082AA2 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 4AF5FB262893318500082AA2 /* Nuke */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4AF5FB0628932DC100082AA2 /* AppLogistAssignmentApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppLogistAssignmentApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AF5FB0928932DC100082AA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4AF5FB0D28932DC100082AA2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4AF5FB0D28932DC100082AA2 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		4AF5FB1228932DC200082AA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4AF5FB1528932DC200082AA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4AF5FB1728932DC200082AA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -27,6 +30,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AF5FB272893318500082AA2 /* Nuke in Frameworks */,
+				4AF5FB212893314600082AA2 /* LBTATools in Frameworks */,
+				4AF5FB242893317100082AA2 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,7 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				4AF5FB0928932DC100082AA2 /* AppDelegate.swift */,
-				4AF5FB0D28932DC100082AA2 /* ViewController.swift */,
+				4AF5FB0D28932DC100082AA2 /* HomeController.swift */,
 				4AF5FB1228932DC200082AA2 /* Assets.xcassets */,
 				4AF5FB1428932DC200082AA2 /* LaunchScreen.storyboard */,
 				4AF5FB1728932DC200082AA2 /* Info.plist */,
@@ -77,6 +83,11 @@
 			dependencies = (
 			);
 			name = AppLogistAssignmentApp;
+			packageProductDependencies = (
+				4AF5FB202893314600082AA2 /* LBTATools */,
+				4AF5FB232893317100082AA2 /* Alamofire */,
+				4AF5FB262893318500082AA2 /* Nuke */,
+			);
 			productName = AppLogistAssignmentApp;
 			productReference = 4AF5FB0628932DC100082AA2 /* AppLogistAssignmentApp.app */;
 			productType = "com.apple.product-type.application";
@@ -105,6 +116,11 @@
 				Base,
 			);
 			mainGroup = 4AF5FAFD28932DC100082AA2;
+			packageReferences = (
+				4AF5FB1F2893314600082AA2 /* XCRemoteSwiftPackageReference "LBTATools" */,
+				4AF5FB222893317100082AA2 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				4AF5FB252893318500082AA2 /* XCRemoteSwiftPackageReference "Nuke" */,
+			);
 			productRefGroup = 4AF5FB0728932DC100082AA2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -131,7 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AF5FB0E28932DC100082AA2 /* ViewController.swift in Sources */,
+				4AF5FB0E28932DC100082AA2 /* HomeController.swift in Sources */,
 				4AF5FB0A28932DC100082AA2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,6 +360,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4AF5FB1F2893314600082AA2 /* XCRemoteSwiftPackageReference "LBTATools" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bhlvoong/LBTATools.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		4AF5FB222893317100082AA2 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		4AF5FB252893318500082AA2 /* XCRemoteSwiftPackageReference "Nuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Nuke.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4AF5FB202893314600082AA2 /* LBTATools */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4AF5FB1F2893314600082AA2 /* XCRemoteSwiftPackageReference "LBTATools" */;
+			productName = LBTATools;
+		};
+		4AF5FB232893317100082AA2 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4AF5FB222893317100082AA2 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		4AF5FB262893318500082AA2 /* Nuke */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4AF5FB252893318500082AA2 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = Nuke;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4AF5FAFE28932DC100082AA2 /* Project object */;
 }
