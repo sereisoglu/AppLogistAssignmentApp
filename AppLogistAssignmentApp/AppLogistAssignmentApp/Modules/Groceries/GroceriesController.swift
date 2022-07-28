@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import LBTATools
 
 final class GroceriesController: UICollectionViewController {
     
@@ -20,6 +21,12 @@ final class GroceriesController: UICollectionViewController {
         return .init(width: width, height: height)
     }
     
+    private let viewModel = GroceriesViewModel()
+    
+    private var groceries: [GroceryModel] {
+        return viewModel.getGroceries()
+    }
+    
     init() {
         let collectionViewLayout = UICollectionViewFlowLayout()
         super.init(collectionViewLayout: collectionViewLayout)
@@ -31,7 +38,15 @@ final class GroceriesController: UICollectionViewController {
         navigationItem.title = "Groceries"
         navigationController?.navigationBar.prefersLargeTitles = false
         
-        collectionView.contentInset = .init(top: CONTENT_INSET, left: CONTENT_INSET, bottom: CONTENT_INSET, right: CONTENT_INSET)
+        setupCollectionView()
+        
+        viewModel.delegate = self
+        
+        viewModel.fetchGroceries()
+    }
+    
+    private func setupCollectionView() {
+        collectionView.contentInset = .allSides(CONTENT_INSET)
         
         collectionView.registerCell(GroceryCell.self)
     }
@@ -46,7 +61,7 @@ final class GroceriesController: UICollectionViewController {
 extension GroceriesController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 9
+        return groceries.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -79,6 +94,19 @@ extension GroceriesController: UICollectionViewDelegateFlowLayout {
 extension GroceriesController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
+}
+
+// MARK: - GroceriesViewModelDelegate
+
+extension GroceriesController: GroceriesViewModelDelegate {
+    
+    func setGroceries() {
+        collectionView.reloadData()
+    }
+    
+    func setError(error: ErrorModel) {
         
     }
 }
