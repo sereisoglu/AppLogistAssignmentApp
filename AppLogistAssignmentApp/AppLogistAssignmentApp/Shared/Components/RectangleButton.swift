@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import LBTATools
 
 final class RectangleButton: UIButton {
     
@@ -42,10 +43,18 @@ final class RectangleButton: UIButton {
         clipsToBounds = true
         
         label.addCenterInSuperview(superview: self)
+        
+        label.isUserInteractionEnabled = false
     }
     
     func set(text: String) {
         label.set(text: text)
+    }
+    
+    func set(isEnabled: Bool) {
+        self.isEnabled = isEnabled
+        
+        backgroundColor = isEnabled ? Color.accentPrimary.value : Color.tintSecondary.value
     }
     
     required init?(coder: NSCoder) {

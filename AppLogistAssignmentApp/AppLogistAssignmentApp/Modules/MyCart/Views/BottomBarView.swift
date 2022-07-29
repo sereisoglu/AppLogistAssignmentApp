@@ -46,17 +46,43 @@ final class BottomBarView: UIView {
             .height(1)
         )
         
-        hstack(
+        let isSmall = UIScreen.main.bounds.width <= 350
+        
+        if isSmall {
             hstack(
-                leftLabel,
-                rightLabel,
-                spacing: 10
-            ),
-            UIView(),
-            button.withWidth(150)
-        ).withMargins(.allSides(20))
+                stack(
+                    leftLabel,
+                    rightLabel
+                ),
+                UIView(),
+                button.withSize(.init(width: 120, height: 50)),
+                spacing: 5,
+                alignment: .center
+            ).padLeft(20).padRight(20)
+        } else {
+            hstack(
+                hstack(
+                    leftLabel,
+                    rightLabel,
+                    spacing: 10,
+                    alignment: .center
+                ),
+                UIView(),
+                button.withSize(.init(width: 150, height: 50)),
+                spacing: 5,
+                alignment: .center
+            ).padLeft(20).padRight(20)
+        }
         
         button.addTarget(self, action: #selector(handleButton), for: .primaryActionTriggered)
+        
+        leftLabel.adjustsFontSizeToFitWidth = true
+        leftLabel.minimumScaleFactor = 0.6
+        leftLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+        
+        rightLabel.adjustsFontSizeToFitWidth = true
+        rightLabel.minimumScaleFactor = 0.6
+        rightLabel.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
     }
     
     func set(leftLabelText: String) {
@@ -69,6 +95,10 @@ final class BottomBarView: UIView {
     
     func set(buttonText: String) {
         button.set(text: buttonText)
+    }
+    
+    func set(buttonIsEnabled: Bool) {
+        button.set(isEnabled: buttonIsEnabled)
     }
     
     @objc

@@ -83,6 +83,7 @@ final class MyCartController: UITableViewController {
     
     private func setupTableView() {
         tableView.alwaysBounceVertical = true
+        tableView.contentInset.bottom = 120
         
         tableView.registerCell(MyCartCell.self)
     }
@@ -103,12 +104,13 @@ final class MyCartController: UITableViewController {
         bottomBarView.set(leftLabelText: "Total:")
         bottomBarView.set(rightLabelText: viewModel.totalPriceText)
         bottomBarView.set(buttonText: "Place Order")
-        
+        bottomBarView.set(buttonIsEnabled: groceries.isNotEmpty)
         bottomBarView.delegate = self
     }
     
     private func updateBottomBarView() {
         bottomBarView.set(rightLabelText: viewModel.totalPriceText)
+        bottomBarView.set(buttonIsEnabled: groceries.isNotEmpty)
     }
     
     private func animate(start: Bool) {

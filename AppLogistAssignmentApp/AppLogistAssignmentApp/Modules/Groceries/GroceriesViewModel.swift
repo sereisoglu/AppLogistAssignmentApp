@@ -45,6 +45,14 @@ final class GroceriesViewModel {
         return groceries.first?.currency ?? "₺"
     }
     
+    var totalAmount: Int {
+        return getMyCartGroceries().reduce(Int()) { partialResult, grocery in
+            var partialResult = partialResult
+            partialResult += grocery.amount
+            return partialResult
+        }
+    }
+    
     weak var delegate: GroceriesViewModelDelegate?
     
     weak var myCartDelegate: GroceriesViewModelMyCartDelegate?

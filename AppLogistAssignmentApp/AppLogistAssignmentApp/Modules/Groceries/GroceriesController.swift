@@ -60,12 +60,23 @@ final class GroceriesController: UICollectionViewController {
         navigationItem.title = "Groceries"
         navigationController?.navigationBar.prefersLargeTitles = false
         
-        navigationItem.rightBarButtonItem = .init(
-            image: Icon.cart.value,
-            style: .plain,
-            target: self,
-            action: #selector(handleRightBarButtonItem)
+        let rightButton = BarButtonItemWithBadge()
+        rightButton.set(icon: .cart)
+        rightButton.addTarget(
+            self,
+            action: #selector(handleRightBarButtonItem),
+            for: .primaryActionTriggered
         )
+        
+        navigationItem.rightBarButtonItem = .init(customView: rightButton)
+    }
+    
+    private func updateNavigationBar() {
+        guard let rightButton = navigationItem.rightBarButtonItem?.customView as? BarButtonItemWithBadge else {
+            return
+        }
+        
+        rightButton.set(badgeValue: viewModel.totalAmount)
     }
     
     private func setupCollectionView() {
@@ -196,6 +207,7 @@ extension GroceriesController: GroceriesViewModelDelegate {
     }
     
     func reload() {
+        updateNavigationBar()
         collectionView.reloadData()
     }
 }

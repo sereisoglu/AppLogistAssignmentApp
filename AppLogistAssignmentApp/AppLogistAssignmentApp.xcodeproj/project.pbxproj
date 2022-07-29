@@ -48,6 +48,7 @@
 		4AF5FB792893DC1E00082AA2 /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB782893DC1E00082AA2 /* Encodable+Extension.swift */; };
 		4AF5FB7B2893DCE900082AA2 /* Endpoint+Encoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB7A2893DCE900082AA2 /* Endpoint+Encoding.swift */; };
 		4AF5FB7D2893DD5700082AA2 /* ProductsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB7C2893DD5700082AA2 /* ProductsModel.swift */; };
+		4AF5FB7F2893FD7400082AA2 /* BarButtonItemWithBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB7E2893FD7400082AA2 /* BarButtonItemWithBadge.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +92,7 @@
 		4AF5FB782893DC1E00082AA2 /* Encodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
 		4AF5FB7A2893DCE900082AA2 /* Endpoint+Encoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Endpoint+Encoding.swift"; sourceTree = "<group>"; };
 		4AF5FB7C2893DD5700082AA2 /* ProductsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsModel.swift; sourceTree = "<group>"; };
+		4AF5FB7E2893FD7400082AA2 /* BarButtonItemWithBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarButtonItemWithBadge.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 				4AF5FB4C2893405900082AA2 /* ActivityIndicatorView.swift */,
 				4AF5FB3128933C2000082AA2 /* StepperView.swift */,
 				4AF5FB3328933C4700082AA2 /* RectangleButton.swift */,
+				4AF5FB7E2893FD7400082AA2 /* BarButtonItemWithBadge.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				4AF5FB622893496E00082AA2 /* Endpoint+Method.swift in Sources */,
 				4AF5FB532893409900082AA2 /* Color.swift in Sources */,
 				4AF5FB602893491200082AA2 /* Endpoint+Path.swift in Sources */,
+				4AF5FB7F2893FD7400082AA2 /* BarButtonItemWithBadge.swift in Sources */,
 				4AF5FB752893D1CF00082AA2 /* UITableView+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
