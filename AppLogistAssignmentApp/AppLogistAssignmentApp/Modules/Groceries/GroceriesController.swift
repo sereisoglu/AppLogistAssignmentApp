@@ -115,6 +115,24 @@ extension GroceriesController {
         let navigationController = UINavigationController(rootViewController: controller)
         present(navigationController, animated: true, completion: nil)
     }
+    
+    private func presentAlertController(
+        title: String,
+        message: String,
+        handler: ((UIAlertAction) -> Void)? = nil
+    ) {
+        let alertController = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: .alert
+        )
+        
+        alertController.addAction(
+            UIAlertAction(title: "OK", style: .default, handler: handler)
+        )
+        
+        present(alertController, animated: true, completion: nil)
+    }
 }
 
 // MARK: - UICollectionViewDataSource
@@ -178,7 +196,12 @@ extension GroceriesController: GroceriesViewModelDelegate {
     }
     
     func fetchGroceriesFailure(error: ErrorModel) {
+        animate(start: false)
         
+        presentAlertController(
+            title: "API Error!",
+            message: error.error ?? "An unknown error has occurred."
+        )
     }
     
     func reload() {

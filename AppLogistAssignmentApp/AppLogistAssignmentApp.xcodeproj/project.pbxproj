@@ -46,6 +46,9 @@
 		4AF5FB732893CFB500082AA2 /* GroceryUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB722893CFB500082AA2 /* GroceryUIModel.swift */; };
 		4AF5FB752893D1CF00082AA2 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB742893D1CF00082AA2 /* UITableView+Extension.swift */; };
 		4AF5FB772893D57600082AA2 /* UIEdgeInsets+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB762893D57600082AA2 /* UIEdgeInsets+Extension.swift */; };
+		4AF5FB792893DC1E00082AA2 /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB782893DC1E00082AA2 /* Encodable+Extension.swift */; };
+		4AF5FB7B2893DCE900082AA2 /* Endpoint+Encoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB7A2893DCE900082AA2 /* Endpoint+Encoding.swift */; };
+		4AF5FB7D2893DD5700082AA2 /* ProductsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB7C2893DD5700082AA2 /* ProductsModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +90,9 @@
 		4AF5FB722893CFB500082AA2 /* GroceryUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryUIModel.swift; sourceTree = "<group>"; };
 		4AF5FB742893D1CF00082AA2 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		4AF5FB762893D57600082AA2 /* UIEdgeInsets+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Extension.swift"; sourceTree = "<group>"; };
+		4AF5FB782893DC1E00082AA2 /* Encodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
+		4AF5FB7A2893DCE900082AA2 /* Endpoint+Encoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Endpoint+Encoding.swift"; sourceTree = "<group>"; };
+		4AF5FB7C2893DD5700082AA2 /* ProductsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +200,7 @@
 				4AF5FB29289333E800082AA2 /* UICollectionView+Extension.swift */,
 				4AF5FB742893D1CF00082AA2 /* UITableView+Extension.swift */,
 				4AF5FB762893D57600082AA2 /* UIEdgeInsets+Extension.swift */,
+				4AF5FB782893DC1E00082AA2 /* Encodable+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -226,6 +233,7 @@
 				4AF5FB612893496E00082AA2 /* Endpoint+Method.swift */,
 				4AF5FB632893497700082AA2 /* Endpoint+Headers.swift */,
 				4AF5FB652893498300082AA2 /* Endpoint+Parameters.swift */,
+				4AF5FB7A2893DCE900082AA2 /* Endpoint+Encoding.swift */,
 			);
 			path = Endpoint;
 			sourceTree = "<group>";
@@ -260,6 +268,7 @@
 			children = (
 				4AF5FB6A28934B2100082AA2 /* GroceryModel.swift */,
 				4AF5FB722893CFB500082AA2 /* GroceryUIModel.swift */,
+				4AF5FB7C2893DD5700082AA2 /* ProductsModel.swift */,
 				4AF5FB6C28934B3600082AA2 /* ProductModel.swift */,
 				4AF5FB702893C4AA00082AA2 /* CheckoutResponseModel.swift */,
 				4AF5FB6828934A6800082AA2 /* ErrorModel.swift */,
@@ -367,8 +376,10 @@
 				4AF5FB55289340A400082AA2 /* Icon.swift in Sources */,
 				4AF5FB492893400D00082AA2 /* MyCartCell.swift in Sources */,
 				4AF5FB3928933F2900082AA2 /* MyCartController.swift in Sources */,
+				4AF5FB7D2893DD5700082AA2 /* ProductsModel.swift in Sources */,
 				4AF5FB4728933FF600082AA2 /* GroceryCell.swift in Sources */,
 				4AF5FB512893409300082AA2 /* Font.swift in Sources */,
+				4AF5FB7B2893DCE900082AA2 /* Endpoint+Encoding.swift in Sources */,
 				4AF5FB3228933C2000082AA2 /* StepperView.swift in Sources */,
 				4AF5FB6F289350F900082AA2 /* Collection+Extension.swift in Sources */,
 				4AF5FB0A28932DC100082AA2 /* AppDelegate.swift in Sources */,
@@ -377,6 +388,7 @@
 				4AF5FB5E289348B100082AA2 /* Endpoint.swift in Sources */,
 				4AF5FB642893497700082AA2 /* Endpoint+Headers.swift in Sources */,
 				4AF5FB662893498300082AA2 /* Endpoint+Parameters.swift in Sources */,
+				4AF5FB792893DC1E00082AA2 /* Encodable+Extension.swift in Sources */,
 				4AF5FB622893496E00082AA2 /* Endpoint+Method.swift in Sources */,
 				4AF5FB532893409900082AA2 /* Color.swift in Sources */,
 				4AF5FB602893491200082AA2 /* Endpoint+Path.swift in Sources */,

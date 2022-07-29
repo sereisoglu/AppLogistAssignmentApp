@@ -28,6 +28,7 @@ final class APIService {
             urlString,
             method: endpoint.method,
             parameters: endpoint.parameters,
+            encoding: endpoint.encoding,
             headers: endpoint.headers
         )
         

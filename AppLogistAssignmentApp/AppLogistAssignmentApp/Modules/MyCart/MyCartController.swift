@@ -38,7 +38,7 @@ final class MyCartController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = Color.backgroundDefault.value
+        navigationController?.view.backgroundColor = Color.backgroundDefault.value
         tableView.backgroundColor = Color.backgroundDefault.value
         
         setupNavigationBar()
@@ -80,7 +80,7 @@ final class MyCartController: UITableViewController {
     }
     
     private func setupActivityIndicatorView() {
-        activityIndicatorView.addCenterInSuperview(superview: view)
+        activityIndicatorView.addCenterInSuperview(superview: navigationController?.view ?? view)
     }
     
     private func animate(start: Bool) {
@@ -115,6 +115,29 @@ extension MyCartController {
     }
 }
 
+// MARK: - Navigate & Present
+
+extension MyCartController {
+    
+    private func presentAlertController(
+        title: String,
+        message: String,
+        handler: ((UIAlertAction) -> Void)? = nil
+    ) {
+        let alertController = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: .alert
+        )
+        
+        alertController.addAction(
+            UIAlertAction(title: "OK", style: .default, handler: handler)
+        )
+        
+        present(alertController, animated: true, completion: nil)
+    }
+}
+
 // MARK: - UITableViewDataSource
 
 extension MyCartController {
@@ -143,7 +166,9 @@ extension MyCartController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        animate(start: true)
         
+        viewModel.postProducts()
     }
 }
 
@@ -152,11 +177,25 @@ extension MyCartController {
 extension MyCartController: GroceriesViewModelMyCartDelegate {
     
     func postProductsSuccess(data: CheckoutResponseModel) {
-        tableView.reloadData()
+        animate(start: false)
+        
+        viewModel.removeAllGroceries()
+
+        presentAlertController(
+            title: "Success!",
+            message: data.message ?? "Your order has been completed successfully."
+        ) { [weak self] _ in
+            self?.tableView.reloadData()
+        }
     }
     
     func postProductsFailure(error: ErrorModel) {
+        animate(start: false)
         
+        presentAlertController(
+            title: "API Error!",
+            message: error.error ?? "An unknown error has occurred."
+        )
     }
     
     func reload() {

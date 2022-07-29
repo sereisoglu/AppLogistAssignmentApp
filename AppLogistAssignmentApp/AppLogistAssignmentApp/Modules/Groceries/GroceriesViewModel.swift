@@ -147,7 +147,7 @@ final class GroceriesViewModel {
         }
         
         service.request(
-            endpoint: .checkout(products: products)
+            endpoint: .checkout(products: .init(products: products))
         ) { [weak self] (result: Result<CheckoutResponseModel?, ErrorModel>) in
             switch result {
             case .success(let data):

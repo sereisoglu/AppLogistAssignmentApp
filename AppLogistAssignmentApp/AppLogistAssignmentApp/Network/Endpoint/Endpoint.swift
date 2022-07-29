@@ -11,5 +11,5 @@ import Alamofire
 enum Endpoint {
     
     case list
-    case checkout(products: [ProductModel])
+    case checkout(products: ProductsModel)
 }

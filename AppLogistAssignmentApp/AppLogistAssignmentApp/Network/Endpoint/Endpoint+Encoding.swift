@@ -1,5 +1,5 @@
 //
-//  Endpoint+Parameters.swift
+//  Endpoint+Encoding.swift
 //  AppLogistAssignmentApp
 //
 //  Created by Saffet Emin Reisoğlu on 7/29/22.
@@ -10,12 +10,12 @@ import Alamofire
 
 extension Endpoint {
     
-    var parameters: Parameters? {
+    var encoding: ParameterEncoding {
         switch self {
         case .list:
-            return nil
-        case .checkout(let products):
-            return products.toJSON
+            return URLEncoding.default
+        case .checkout:
+            return JSONEncoding.default
         }
     }
 }
