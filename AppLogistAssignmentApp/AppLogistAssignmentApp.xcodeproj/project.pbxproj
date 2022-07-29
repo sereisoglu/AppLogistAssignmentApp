@@ -26,7 +26,6 @@
 		4AF5FB492893400D00082AA2 /* MyCartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB482893400D00082AA2 /* MyCartCell.swift */; };
 		4AF5FB4B2893403000082AA2 /* BottomBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB4A2893403000082AA2 /* BottomBarView.swift */; };
 		4AF5FB4D2893405900082AA2 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB4C2893405900082AA2 /* ActivityIndicatorView.swift */; };
-		4AF5FB4F2893407600082AA2 /* IconImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB4E2893407600082AA2 /* IconImageView.swift */; };
 		4AF5FB512893409300082AA2 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB502893409300082AA2 /* Font.swift */; };
 		4AF5FB532893409900082AA2 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB522893409900082AA2 /* Color.swift */; };
 		4AF5FB55289340A400082AA2 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB54289340A400082AA2 /* Icon.swift */; };
@@ -70,7 +69,6 @@
 		4AF5FB482893400D00082AA2 /* MyCartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartCell.swift; sourceTree = "<group>"; };
 		4AF5FB4A2893403000082AA2 /* BottomBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBarView.swift; sourceTree = "<group>"; };
 		4AF5FB4C2893405900082AA2 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
-		4AF5FB4E2893407600082AA2 /* IconImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconImageView.swift; sourceTree = "<group>"; };
 		4AF5FB502893409300082AA2 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		4AF5FB522893409900082AA2 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		4AF5FB54289340A400082AA2 /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
@@ -155,7 +153,6 @@
 			isa = PBXGroup;
 			children = (
 				4AF5FB2D28933B6500082AA2 /* Label.swift */,
-				4AF5FB4E2893407600082AA2 /* IconImageView.swift */,
 				4AF5FB2F28933B7A00082AA2 /* DownloadableImageView.swift */,
 				4AF5FB4C2893405900082AA2 /* ActivityIndicatorView.swift */,
 				4AF5FB3128933C2000082AA2 /* StepperView.swift */,
@@ -369,7 +366,6 @@
 				4AF5FB4228933FBC00082AA2 /* APIService.swift in Sources */,
 				4AF5FB732893CFB500082AA2 /* GroceryUIModel.swift in Sources */,
 				4AF5FB6928934A6800082AA2 /* ErrorModel.swift in Sources */,
-				4AF5FB4F2893407600082AA2 /* IconImageView.swift in Sources */,
 				4AF5FB4B2893403000082AA2 /* BottomBarView.swift in Sources */,
 				4AF5FB4D2893405900082AA2 /* ActivityIndicatorView.swift in Sources */,
 				4AF5FB3428933C4700082AA2 /* RectangleButton.swift in Sources */,

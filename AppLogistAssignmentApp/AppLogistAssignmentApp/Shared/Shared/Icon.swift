@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import LBTATools
 
 enum Icon: String {
     case cart = "cart"
@@ -15,16 +14,5 @@ enum Icon: String {
     
     var value: UIImage {
         return UIImage(named: "\(rawValue)") ?? UIImage()
-    }
-}
-
-enum IconSize {
-    case pt22
-    
-    var value: CGSize {
-        switch self {
-        case .pt22:
-            return .equalEdge(22)
-        }
     }
 }

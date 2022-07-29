@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import LBTATools
 
 final class MyCartController: UITableViewController {
     
@@ -72,7 +73,7 @@ final class MyCartController: UITableViewController {
         let rightButton = UIButton(
             title: "Done",
             titleColor: Color.tintBlue.value,
-            font: .systemFont(ofSize: FontType.body1.value.size),
+            font: .boldSystemFont(ofSize: FontType.body1.value.size),
             target: self,
             action: #selector(handleRightBarButtonItem)
         )
@@ -271,6 +272,6 @@ extension MyCartController: BottomBarViewDelegate {
     func handleButton() {
         animate(start: true)
         
-        viewModel.postProducts()
+        viewModel.postGroceries()
     }
 }

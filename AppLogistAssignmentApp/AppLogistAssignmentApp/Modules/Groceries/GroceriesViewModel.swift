@@ -151,7 +151,7 @@ final class GroceriesViewModel {
         myCartDelegate?.reload()
     }
     
-    func postProducts() {
+    func postGroceries() {
         let products: [ProductModel] = groceries.compactMap { grocery in
             guard grocery.amount > 0 else {
                 return nil
