@@ -53,6 +53,7 @@ final class MyCartCell: UITableViewCell {
         downloadableImageView.set(imageUrl: grocery.imageUrl)
         label.set(text: grocery.name)
         subLabel.set(text: grocery.priceText)
+        
         stepperView.set(value: grocery.amount)
         stepperView.set(index: index)
         stepperView.delegate = delegate

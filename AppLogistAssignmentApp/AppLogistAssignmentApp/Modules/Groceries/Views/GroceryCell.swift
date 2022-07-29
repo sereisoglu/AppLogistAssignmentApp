@@ -12,9 +12,12 @@ final class GroceryCell: UICollectionViewCell {
     private let downloadableImageView = DownloadableImageView(cornerRadius: 6, borderWidth: 1)
     private let label = Label(type: .body1, weight: .semibold, color: .accentPrimary)
     private let subLabel = Label(type: .body2, weight: .medium, color: .tintPrimary)
+    private let stepperView = StepperView(haveShadow: true)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        clipsToBounds = true
         
         stack(
             downloadableImageView,
@@ -24,6 +27,12 @@ final class GroceryCell: UICollectionViewCell {
             ),
             spacing: 4
         )
+        
+        addSubview(stepperView)
+        stepperView.anchor(
+            .trailing(trailingAnchor, constant: 5),
+            .top(topAnchor, constant: 5)
+        )
     }
     
     override func prepareForReuse() {
@@ -32,10 +41,14 @@ final class GroceryCell: UICollectionViewCell {
         downloadableImageView.cancelImageDownload()
     }
     
-    func set(grocery: GroceryUIModel) {
+    func set(grocery: GroceryUIModel, index: Int, delegate: StepperViewDelegate?) {
         downloadableImageView.set(imageUrl: grocery.imageUrl)
         label.set(text: grocery.priceText)
         subLabel.set(text: grocery.name)
+        
+        stepperView.set(value: grocery.amount)
+        stepperView.set(index: index)
+        stepperView.delegate = delegate
     }
     
     static func getSize(width: CGFloat) -> CGSize {

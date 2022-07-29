@@ -39,7 +39,6 @@ final class BottomBarView: UIView {
         addSubview(visualEffectView)
         
         addSubview(seperatorView)
-        
         seperatorView.anchor(
             .leading(leadingAnchor),
             .trailing(trailingAnchor),

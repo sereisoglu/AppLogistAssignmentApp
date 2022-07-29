@@ -147,7 +147,7 @@ extension GroceriesController {
         let cell = collectionView.dequeueReusableCell(for: indexPath) as GroceryCell
         
         if let grocery = groceries[safe: indexPath.item] {
-            cell.set(grocery: grocery)
+            cell.set(grocery: grocery, index: indexPath.item, delegate: self)
         }
         
         return cell
@@ -175,14 +175,6 @@ extension GroceriesController: UICollectionViewDelegateFlowLayout {
 // MARK: - UICollectionViewDelegate
 
 extension GroceriesController {
-    
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let grocery = groceries[safe: indexPath.item] else {
-            return
-        }
-        
-        viewModel.addGrocery(id: grocery.id)
-    }
 }
 
 // MARK: - GroceriesViewModelDelegate
@@ -206,5 +198,26 @@ extension GroceriesController: GroceriesViewModelDelegate {
     
     func reload() {
         collectionView.reloadData()
+    }
+}
+
+// MARK: StepperViewDelegate
+
+extension GroceriesController: StepperViewDelegate {
+    
+    func handleMinusButton(index: Int) {
+        guard let id = groceries[safe: index]?.id else {
+            return
+        }
+        
+        viewModel.removeGrocery(id: id)
+    }
+    
+    func handlePlusButton(index: Int) {
+        guard let id = groceries[safe: index]?.id else {
+            return
+        }
+        
+        viewModel.addGrocery(id: id)
     }
 }

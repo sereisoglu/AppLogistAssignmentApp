@@ -92,7 +92,6 @@ final class MyCartController: UITableViewController {
     
     private func setupBottomBarView() {
         navigationControllerView.addSubview(bottomBarView)
-        
         bottomBarView.anchor(
             .leading(navigationControllerView.leadingAnchor),
             .bottom(navigationControllerView.bottomAnchor),

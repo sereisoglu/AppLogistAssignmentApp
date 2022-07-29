@@ -39,7 +39,7 @@ final class StepperView: UIView {
         action: #selector(handlePlusButton)
     )
     
-    init() {
+    init(haveShadow: Bool = false) {
         super.init(frame: .zero)
         
         backgroundColor = Color.backgroundDefault.value
@@ -48,7 +48,6 @@ final class StepperView: UIView {
         if #available(iOS 13.0, *) {
             layer.cornerCurve = .continuous
         }
-        clipsToBounds = true
         
         hstack(
             minusButton.withSize(.equalEdge(20)),
@@ -58,6 +57,16 @@ final class StepperView: UIView {
         
         minusButton.isHidden = true
         label.isHidden = true
+        
+        if haveShadow {
+            layer.shadowColor = UIColor.black.cgColor
+            layer.shadowOpacity = 0.4
+            layer.shadowOffset = .zero
+            layer.shadowRadius = 10
+    //        layer.shadowPath = UIBezierPath(rect: bounds).cgPath
+            layer.shouldRasterize = true
+            layer.rasterizationScale = UIScreen.main.scale
+        }
     }
     
     func set(value: Int) {
