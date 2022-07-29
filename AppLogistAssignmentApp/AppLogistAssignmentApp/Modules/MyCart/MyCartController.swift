@@ -52,11 +52,25 @@ final class MyCartController: UITableViewController {
         navigationItem.title = "My Cart"
         navigationController?.navigationBar.prefersLargeTitles = false
         
-        let label = Label(text: "Delete All", type: .body1, weight: .medium, color: .tintRed, alignment: .center)
-        navigationItem.leftBarButtonItem = .init(customView: label)
+        let leftButton = UIButton(
+            title: "Delete All",
+            titleColor: Color.tintRed.value,
+            font: .systemFont(ofSize: FontType.body1.value.size),
+            target: self,
+            action: #selector(handleLeftBarButtonItem)
+        )
         
-        let label2 = Label(text: "Done", type: .body1, weight: .medium, color: .tintBlue, alignment: .center)
-        navigationItem.rightBarButtonItem = .init(customView: label2)
+        navigationItem.leftBarButtonItem = .init(customView: leftButton)
+        
+        let rightButton = UIButton(
+            title: "Done",
+            titleColor: Color.tintBlue.value,
+            font: .systemFont(ofSize: FontType.body1.value.size),
+            target: self,
+            action: #selector(handleRightBarButtonItem)
+        )
+        
+        navigationItem.rightBarButtonItem = .init(customView: rightButton)
     }
     
     private func setupTableView() {
@@ -87,6 +101,19 @@ final class MyCartController: UITableViewController {
 }
 
 // MARK: - Actions
+
+extension MyCartController {
+    
+    @objc
+    private func handleLeftBarButtonItem() {
+        viewModel.removeAllGroceries()
+    }
+    
+    @objc
+    private func handleRightBarButtonItem() {
+        dismiss(animated: true)
+    }
+}
 
 // MARK: - UITableViewDataSource
 
