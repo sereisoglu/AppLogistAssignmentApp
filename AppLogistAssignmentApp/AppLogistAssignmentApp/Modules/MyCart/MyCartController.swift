@@ -102,14 +102,14 @@ final class MyCartController: UITableViewController {
         )
         
         bottomBarView.set(leftLabelText: "Total:")
-        bottomBarView.set(rightLabelText: viewModel.totalPriceText)
+        bottomBarView.set(rightLabelText: viewModel.getTotalPriceText())
         bottomBarView.set(buttonText: "Place Order")
         bottomBarView.set(buttonIsEnabled: groceries.isNotEmpty)
         bottomBarView.delegate = self
     }
     
     private func updateBottomBarView() {
-        bottomBarView.set(rightLabelText: viewModel.totalPriceText)
+        bottomBarView.set(rightLabelText: viewModel.getTotalPriceText())
         bottomBarView.set(buttonIsEnabled: groceries.isNotEmpty)
     }
     

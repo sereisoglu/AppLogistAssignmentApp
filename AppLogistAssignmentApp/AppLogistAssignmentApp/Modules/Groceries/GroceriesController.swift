@@ -76,7 +76,7 @@ final class GroceriesController: UICollectionViewController {
             return
         }
         
-        rightButton.set(badgeValue: viewModel.totalAmount)
+        rightButton.set(badgeValue: viewModel.getTotalAmount())
     }
     
     private func setupCollectionView() {
@@ -208,6 +208,7 @@ extension GroceriesController: GroceriesViewModelDelegate {
     
     func reload() {
         updateNavigationBar()
+        
         collectionView.reloadData()
     }
 }

@@ -21,10 +21,7 @@ final class BarButtonItemWithBadge: UIButton {
         
         iconImageView.addFillSuperview(superview: self)
         
-        badgeView.layer.cornerRadius = 9
-        if #available(iOS 13.0, *) {
-            badgeView.layer.cornerCurve = .continuous
-        }
+        badgeView.layer.cornerRadius = 18 / 2
         badgeView.clipsToBounds = true
         
         addSubview(badgeView)

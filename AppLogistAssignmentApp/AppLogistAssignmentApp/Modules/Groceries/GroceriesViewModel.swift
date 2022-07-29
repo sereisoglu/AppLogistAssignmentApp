@@ -29,7 +29,21 @@ final class GroceriesViewModel {
     
     private var groceries = [GroceryUIModel]()
     
-    private var totalPrice: Double {
+    weak var delegate: GroceriesViewModelDelegate?
+    
+    weak var myCartDelegate: GroceriesViewModelMyCartDelegate?
+    
+    // MARK: - Get
+    
+    func getGroceries() -> [GroceryUIModel] {
+        return groceries
+    }
+    
+    func getMyCartGroceries() -> [GroceryUIModel] {
+        return groceries.filter({ $0.amount > 0 })
+    }
+    
+    private func getTotalPrice() -> Double {
         return getMyCartGroceries().reduce(Double()) { partialResult, grocery in
             var partialResult = partialResult
             partialResult += (grocery.price * Double(grocery.amount))
@@ -37,15 +51,13 @@ final class GroceriesViewModel {
         }
     }
     
-    var totalPriceText: String {
-        return String(format: "\(currency)%.02f", totalPrice)
+    func getTotalPriceText() -> String {
+        let currency = groceries.first?.currency ?? "₺"
+        
+        return String(format: "\(currency)%.02f", getTotalPrice())
     }
     
-    private var currency: String {
-        return groceries.first?.currency ?? "₺"
-    }
-    
-    var totalAmount: Int {
+    func getTotalAmount() -> Int {
         return getMyCartGroceries().reduce(Int()) { partialResult, grocery in
             var partialResult = partialResult
             partialResult += grocery.amount
@@ -53,59 +65,7 @@ final class GroceriesViewModel {
         }
     }
     
-    weak var delegate: GroceriesViewModelDelegate?
-    
-    weak var myCartDelegate: GroceriesViewModelMyCartDelegate?
-    
-    // Grocery
-    
-    func fetchGroceries() {
-        service.request(
-            endpoint: .list
-        ) { [weak self] (result: Result<[GroceryModel]?, ErrorModel>) in
-            switch result {
-            case .success(let groceries):
-                self?.prepareGroceries(groceries: groceries ?? [])
-                self?.delegate?.fetchGroceriesSuccess()
-                
-            case .failure(let error):
-                self?.delegate?.fetchGroceriesFailure(error: error)
-            }
-        }
-    }
-    
-    func getGroceries() -> [GroceryUIModel] {
-        return groceries
-    }
-    
-    private func prepareGroceries(groceries: [GroceryModel]) {
-        self.groceries = groceries.compactMap { grocery in
-            guard let id = grocery.id,
-                  let name = grocery.name,
-                  let price = grocery.price,
-                  let currency = grocery.currency,
-                  let stock = grocery.stock else {
-                return nil
-            }
-            
-            return .init(
-                id: id,
-                imageUrl: grocery.imageUrl,
-                name: name,
-                price: price,
-                priceText: String(format: "\(currency)%.02f", price),
-                currency: currency,
-                stock: stock,
-                amount: 0
-            )
-        }
-    }
-    
-    // My Cart
-    
-    func getMyCartGroceries() -> [GroceryUIModel] {
-        return groceries.filter({ $0.amount > 0 })
-    }
+    // MARK: - CRUD
     
     func addGrocery(id: String) {
         guard let index = groceries.firstIndex(where: { $0.id == id }) else {
@@ -158,6 +118,48 @@ final class GroceriesViewModel {
         delegate?.reload()
         myCartDelegate?.reload()
     }
+    
+    // MARK: - GET Request
+    
+    func fetchGroceries() {
+        service.request(
+            endpoint: .list
+        ) { [weak self] (result: Result<[GroceryModel]?, ErrorModel>) in
+            switch result {
+            case .success(let groceries):
+                self?.prepareGroceries(groceries: groceries ?? [])
+                self?.delegate?.fetchGroceriesSuccess()
+                
+            case .failure(let error):
+                self?.delegate?.fetchGroceriesFailure(error: error)
+            }
+        }
+    }
+    
+    private func prepareGroceries(groceries: [GroceryModel]) {
+        self.groceries = groceries.compactMap { grocery in
+            guard let id = grocery.id,
+                  let name = grocery.name,
+                  let price = grocery.price,
+                  let currency = grocery.currency,
+                  let stock = grocery.stock else {
+                return nil
+            }
+            
+            return .init(
+                id: id,
+                imageUrl: grocery.imageUrl,
+                name: name,
+                price: price,
+                priceText: String(format: "\(currency)%.02f", price),
+                currency: currency,
+                stock: stock,
+                amount: 0
+            )
+        }
+    }
+    
+    // MARK: - POST Request
     
     func postGroceries() {
         let products: [ProductModel] = groceries.compactMap { grocery in
