@@ -13,9 +13,13 @@ final class MyCartCell: UITableViewCell {
     private let downloadableImageView = DownloadableImageView(cornerRadius: 6, borderWidth: 1)
     private let label = Label(type: .body1, weight: .semibold, color: .tintPrimary)
     private let subLabel = Label(type: .body2, weight: .medium, color: .accentPrimary)
+    private let stepperView = StepperView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        contentView.isUserInteractionEnabled = false
+        selectionStyle = .none
         
         let imageAspectRatio: CGFloat = 5 / 6
         let imageWidth: CGFloat = 80
@@ -27,6 +31,7 @@ final class MyCartCell: UITableViewCell {
                 label,
                 subLabel
             ),
+            stepperView,
             spacing: 10, alignment: .center
         ).withMargins(.linearSides(v: 10, h: 15))
         
@@ -44,10 +49,13 @@ final class MyCartCell: UITableViewCell {
         downloadableImageView.cancelImageDownload()
     }
     
-    func set(grocery: GroceryUIModel) {
+    func set(grocery: GroceryUIModel, index: Int, delegate: StepperViewDelegate?) {
         downloadableImageView.set(imageUrl: grocery.imageUrl)
         label.set(text: grocery.name)
         subLabel.set(text: grocery.priceText)
+        stepperView.set(value: grocery.amount)
+        stepperView.set(index: index)
+        stepperView.delegate = delegate
     }
     
     required init?(coder: NSCoder) {

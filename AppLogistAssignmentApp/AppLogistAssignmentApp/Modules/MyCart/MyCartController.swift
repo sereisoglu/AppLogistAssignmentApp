@@ -178,7 +178,7 @@ extension MyCartController {
         let cell = tableView.dequeueReusableCell(for: indexPath) as MyCartCell
         
         if let grocery = groceries[safe: indexPath.row] {
-            cell.set(grocery: grocery)
+            cell.set(grocery: grocery, index: indexPath.row, delegate: self)
         }
         
         return cell
@@ -224,6 +224,27 @@ extension MyCartController: GroceriesViewModelMyCartDelegate {
         updateBottomBarView()
         
         tableView.reloadData()
+    }
+}
+
+// MARK: StepperViewDelegate
+
+extension MyCartController: StepperViewDelegate {
+    
+    func handleMinusButton(index: Int) {
+        guard let id = groceries[safe: index]?.id else {
+            return
+        }
+        
+        viewModel.removeGrocery(id: id)
+    }
+    
+    func handlePlusButton(index: Int) {
+        guard let id = groceries[safe: index]?.id else {
+            return
+        }
+        
+        viewModel.addGrocery(id: id)
     }
 }
 
