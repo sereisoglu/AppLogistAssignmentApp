@@ -47,7 +47,7 @@ final class MyCartCell: UITableViewCell {
     func set(grocery: GroceryUIModel) {
         downloadableImageView.set(imageUrl: grocery.imageUrl)
         label.set(text: grocery.name)
-        subLabel.set(text: grocery.price)
+        subLabel.set(text: grocery.priceText)
     }
     
     required init?(coder: NSCoder) {

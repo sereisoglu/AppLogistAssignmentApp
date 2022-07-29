@@ -20,7 +20,13 @@ final class Label: UILabel {
         numberOfLines: Int = 1,
         lineBreakMode: NSLineBreakMode = .byTruncatingTail
     ) {
-        attributes = AttributedStringUtility.generate(type: type, weight: weight, color: nil, alignment: alignment, lineBreakMode: lineBreakMode)
+        attributes = AttributedStringUtility.generate(
+            type: type,
+            weight: weight,
+            color: nil,
+            alignment: alignment,
+            lineBreakMode: lineBreakMode
+        )
         
         super.init(frame: .zero)
         

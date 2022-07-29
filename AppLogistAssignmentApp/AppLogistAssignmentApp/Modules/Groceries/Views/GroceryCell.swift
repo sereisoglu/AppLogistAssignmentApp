@@ -34,7 +34,7 @@ final class GroceryCell: UICollectionViewCell {
     
     func set(grocery: GroceryUIModel) {
         downloadableImageView.set(imageUrl: grocery.imageUrl)
-        label.set(text: grocery.price)
+        label.set(text: grocery.priceText)
         subLabel.set(text: grocery.name)
     }
     

@@ -29,6 +29,22 @@ final class GroceriesViewModel {
     
     private var groceries = [GroceryUIModel]()
     
+    private var totalPrice: Double {
+        return getMyCartGroceries().reduce(Double()) { partialResult, grocery in
+            var partialResult = partialResult
+            partialResult += (grocery.price * Double(grocery.amount))
+            return partialResult
+        }
+    }
+    
+    var totalPriceText: String {
+        return String(format: "\(currency)%.02f", totalPrice)
+    }
+    
+    private var currency: String {
+        return groceries.first?.currency ?? "₺"
+    }
+    
     weak var delegate: GroceriesViewModelDelegate?
     
     weak var myCartDelegate: GroceriesViewModelMyCartDelegate?
@@ -68,7 +84,9 @@ final class GroceriesViewModel {
                 id: id,
                 imageUrl: grocery.imageUrl,
                 name: name,
-                price: String(format: "\(currency)%.02f", price),
+                price: price,
+                priceText: String(format: "\(currency)%.02f", price),
+                currency: currency,
                 stock: stock,
                 amount: 0
             )
@@ -123,14 +141,10 @@ final class GroceriesViewModel {
     
     func removeAllGroceries() {
         groceries = groceries.map { grocery in
-            return .init(
-                id: grocery.id,
-                imageUrl: grocery.imageUrl,
-                name: grocery.name,
-                price: grocery.price,
-                stock: grocery.stock + grocery.amount,
-                amount: 0
-            )
+            var grocery = grocery
+            grocery.stock = grocery.stock + grocery.amount
+            grocery.amount = 0
+            return grocery
         }
         
         delegate?.reload()

@@ -192,7 +192,7 @@ extension GroceriesController: GroceriesViewModelDelegate {
     func fetchGroceriesSuccess() {
         animate(start: false)
         
-        collectionView.reloadData()
+        reload()
     }
     
     func fetchGroceriesFailure(error: ErrorModel) {

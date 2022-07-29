@@ -13,6 +13,7 @@ enum Color: String {
     case tintPrimary = "tint/primary"
     case tintSecondary  = "tint/secondary"
     case tintTertiary = "tint/tertiary"
+    case tintWhite = "tint/white"
     case tintRed = "tint/red"
     case tintBlue = "tint/blue"
     

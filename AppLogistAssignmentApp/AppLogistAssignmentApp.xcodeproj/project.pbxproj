@@ -18,7 +18,7 @@
 		4AF5FB2E28933B6500082AA2 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB2D28933B6500082AA2 /* Label.swift */; };
 		4AF5FB3028933B7A00082AA2 /* DownloadableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB2F28933B7A00082AA2 /* DownloadableImageView.swift */; };
 		4AF5FB3228933C2000082AA2 /* StepperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB3128933C2000082AA2 /* StepperView.swift */; };
-		4AF5FB3428933C4700082AA2 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB3328933C4700082AA2 /* PrimaryButton.swift */; };
+		4AF5FB3428933C4700082AA2 /* RectangleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB3328933C4700082AA2 /* RectangleButton.swift */; };
 		4AF5FB3928933F2900082AA2 /* MyCartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB3828933F2900082AA2 /* MyCartController.swift */; };
 		4AF5FB3D28933F4000082AA2 /* GroceriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB3C28933F4000082AA2 /* GroceriesViewModel.swift */; };
 		4AF5FB4228933FBC00082AA2 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB4128933FBC00082AA2 /* APIService.swift */; };
@@ -62,7 +62,7 @@
 		4AF5FB2D28933B6500082AA2 /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		4AF5FB2F28933B7A00082AA2 /* DownloadableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadableImageView.swift; sourceTree = "<group>"; };
 		4AF5FB3128933C2000082AA2 /* StepperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperView.swift; sourceTree = "<group>"; };
-		4AF5FB3328933C4700082AA2 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		4AF5FB3328933C4700082AA2 /* RectangleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleButton.swift; sourceTree = "<group>"; };
 		4AF5FB3828933F2900082AA2 /* MyCartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartController.swift; sourceTree = "<group>"; };
 		4AF5FB3C28933F4000082AA2 /* GroceriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceriesViewModel.swift; sourceTree = "<group>"; };
 		4AF5FB4128933FBC00082AA2 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
@@ -159,7 +159,7 @@
 				4AF5FB2F28933B7A00082AA2 /* DownloadableImageView.swift */,
 				4AF5FB4C2893405900082AA2 /* ActivityIndicatorView.swift */,
 				4AF5FB3128933C2000082AA2 /* StepperView.swift */,
-				4AF5FB3328933C4700082AA2 /* PrimaryButton.swift */,
+				4AF5FB3328933C4700082AA2 /* RectangleButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -372,7 +372,7 @@
 				4AF5FB4F2893407600082AA2 /* IconImageView.swift in Sources */,
 				4AF5FB4B2893403000082AA2 /* BottomBarView.swift in Sources */,
 				4AF5FB4D2893405900082AA2 /* ActivityIndicatorView.swift in Sources */,
-				4AF5FB3428933C4700082AA2 /* PrimaryButton.swift in Sources */,
+				4AF5FB3428933C4700082AA2 /* RectangleButton.swift in Sources */,
 				4AF5FB55289340A400082AA2 /* Icon.swift in Sources */,
 				4AF5FB492893400D00082AA2 /* MyCartCell.swift in Sources */,
 				4AF5FB3928933F2900082AA2 /* MyCartController.swift in Sources */,

@@ -23,6 +23,12 @@ final class MyCartController: UITableViewController {
     
     private let activityIndicatorView = ActivityIndicatorView(size: .pt30, tintColor: .tintSecondary)
     
+    private let bottomBarView = BottomBarView()
+    
+    private var navigationControllerView: UIView {
+        return navigationController?.view ?? view
+    }
+    
     // MARK: - Life Cycle
     
     init(viewModel: GroceriesViewModel) {
@@ -38,12 +44,13 @@ final class MyCartController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.view.backgroundColor = Color.backgroundDefault.value
+        navigationControllerView.backgroundColor = Color.backgroundDefault.value
         tableView.backgroundColor = Color.backgroundDefault.value
         
         setupNavigationBar()
         setupTableView()
         setupActivityIndicatorView()
+        setupBottomBarView()
         
         viewModel.myCartDelegate = self
     }
@@ -80,7 +87,28 @@ final class MyCartController: UITableViewController {
     }
     
     private func setupActivityIndicatorView() {
-        activityIndicatorView.addCenterInSuperview(superview: navigationController?.view ?? view)
+        activityIndicatorView.addCenterInSuperview(superview: navigationControllerView)
+    }
+    
+    private func setupBottomBarView() {
+        navigationControllerView.addSubview(bottomBarView)
+        
+        bottomBarView.anchor(
+            .leading(navigationControllerView.leadingAnchor),
+            .bottom(navigationControllerView.bottomAnchor),
+            .trailing(navigationControllerView.trailingAnchor),
+            .height(120)
+        )
+        
+        bottomBarView.set(leftLabelText: "Total:")
+        bottomBarView.set(rightLabelText: viewModel.totalPriceText)
+        bottomBarView.set(buttonText: "Place Order")
+        
+        bottomBarView.delegate = self
+    }
+    
+    private func updateBottomBarView() {
+        bottomBarView.set(rightLabelText: viewModel.totalPriceText)
     }
     
     private func animate(start: Bool) {
@@ -164,12 +192,6 @@ extension MyCartController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        animate(start: true)
-        
-        viewModel.postProducts()
-    }
 }
 
 // MARK: - GroceriesViewModelMyCartDelegate
@@ -185,7 +207,7 @@ extension MyCartController: GroceriesViewModelMyCartDelegate {
             title: "Success!",
             message: data.message ?? "Your order has been completed successfully."
         ) { [weak self] _ in
-            self?.tableView.reloadData()
+            self?.reload()
         }
     }
     
@@ -199,6 +221,19 @@ extension MyCartController: GroceriesViewModelMyCartDelegate {
     }
     
     func reload() {
+        updateBottomBarView()
+        
         tableView.reloadData()
+    }
+}
+
+// MARK: - BottomBarViewDelegate
+
+extension MyCartController: BottomBarViewDelegate {
+    
+    func handleButton() {
+        animate(start: true)
+        
+        viewModel.postProducts()
     }
 }
