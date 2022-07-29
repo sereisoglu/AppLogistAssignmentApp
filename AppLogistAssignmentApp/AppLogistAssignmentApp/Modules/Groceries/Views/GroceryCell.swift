@@ -9,7 +9,7 @@ import UIKit
 
 final class GroceryCell: UICollectionViewCell {
     
-    private let imageView = DownloadableImageView(cornerRadius: 6, borderWidth: 1)
+    private let downloadableImageView = DownloadableImageView(cornerRadius: 6, borderWidth: 1)
     private let label = Label(type: .body1, weight: .semibold, color: .accentPrimary)
     private let subLabel = Label(type: .body2, weight: .semibold, color: .tintPrimary)
     
@@ -17,7 +17,7 @@ final class GroceryCell: UICollectionViewCell {
         super.init(frame: frame)
         
         stack(
-            imageView,
+            downloadableImageView,
             stack(
                 label,
                 subLabel
@@ -29,24 +29,24 @@ final class GroceryCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        imageView.cancelImageDownload()
+        downloadableImageView.cancelImageDownload()
     }
     
     func set(grocery: GroceryUIModel) {
-        imageView.set(imageUrl: grocery.imageUrl)
+        downloadableImageView.set(imageUrl: grocery.imageUrl)
         label.set(text: grocery.price)
         subLabel.set(text: grocery.name)
     }
     
     static func getSize(width: CGFloat) -> CGSize {
-        let aspectRatio: CGFloat = 5 / 6
+        let imageAspectRatio: CGFloat = 5 / 6
         
         let labelHeight = FontType.body1.value.lineHeight
         let subLabelHeight = FontType.body2.value.lineHeight
         
         return .init(
             width: width,
-            height: (width * aspectRatio) + 4 + labelHeight + subLabelHeight
+            height: (width * imageAspectRatio) + 4 + labelHeight + subLabelHeight
         )
     }
     

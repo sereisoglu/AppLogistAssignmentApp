@@ -10,6 +10,8 @@ import LBTATools
 
 final class GroceriesController: UICollectionViewController {
     
+    // MARK: - Properties
+    
     private let SCREEN_WIDTH = UIScreen.main.bounds.width
     private let NUMBER_OF_ITEMS_IN_A_LINE = 3
     private let CONTENT_INSET: CGFloat = 16
@@ -26,6 +28,12 @@ final class GroceriesController: UICollectionViewController {
         return viewModel.getGroceries()
     }
     
+    // MARK: - Views
+    
+    private let activityIndicatorView = ActivityIndicatorView(size: .pt30, tintColor: .tintSecondary)
+    
+    // MARK: - Life Cycle
+    
     init() {
         let collectionViewLayout = UICollectionViewFlowLayout()
         super.init(collectionViewLayout: collectionViewLayout)
@@ -36,12 +44,15 @@ final class GroceriesController: UICollectionViewController {
         
         view.backgroundColor = Color.backgroundDefault.value
         collectionView.backgroundColor = Color.backgroundDefault.value
-        collectionView.alwaysBounceVertical = true
         
         setupNavigationBar()
         setupCollectionView()
+        setupActivityIndicatorView()
         
         viewModel.delegate = self
+        
+        animate(start: true)
+        
         viewModel.fetchGroceries()
     }
     
@@ -58,9 +69,26 @@ final class GroceriesController: UICollectionViewController {
     }
     
     private func setupCollectionView() {
+        collectionView.alwaysBounceVertical = true
         collectionView.contentInset = .allSides(CONTENT_INSET)
         
         collectionView.registerCell(GroceryCell.self)
+    }
+    
+    private func setupActivityIndicatorView() {
+        activityIndicatorView.addCenterInSuperview(superview: view)
+    }
+    
+    private func animate(start: Bool) {
+        activityIndicatorView.animating = start
+        
+        if start {
+            collectionView.alpha = 0
+        } else {
+            UIView.animate(withDuration: 0.5) {
+                self.collectionView.alpha = 1
+            }
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -78,7 +106,7 @@ extension GroceriesController {
     }
 }
 
-// MARK: - Present & Navigate
+// MARK: - Navigate & Present
 
 extension GroceriesController {
     
@@ -140,6 +168,8 @@ extension GroceriesController {
 extension GroceriesController: GroceriesViewModelDelegate {
     
     func fetchGroceriesSuccess() {
+        animate(start: false)
+        
         collectionView.reloadData()
     }
     

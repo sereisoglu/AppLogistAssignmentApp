@@ -44,6 +44,7 @@
 		4AF5FB6F289350F900082AA2 /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB6E289350F900082AA2 /* Collection+Extension.swift */; };
 		4AF5FB712893C4AA00082AA2 /* CheckoutResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB702893C4AA00082AA2 /* CheckoutResponseModel.swift */; };
 		4AF5FB732893CFB500082AA2 /* GroceryUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB722893CFB500082AA2 /* GroceryUIModel.swift */; };
+		4AF5FB752893D1CF00082AA2 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB742893D1CF00082AA2 /* UITableView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +84,7 @@
 		4AF5FB6E289350F900082AA2 /* Collection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
 		4AF5FB702893C4AA00082AA2 /* CheckoutResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutResponseModel.swift; sourceTree = "<group>"; };
 		4AF5FB722893CFB500082AA2 /* GroceryUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryUIModel.swift; sourceTree = "<group>"; };
+		4AF5FB742893D1CF00082AA2 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +190,7 @@
 				4AF5FB6E289350F900082AA2 /* Collection+Extension.swift */,
 				4AF5FB582893448800082AA2 /* UIView+Extension.swift */,
 				4AF5FB29289333E800082AA2 /* UICollectionView+Extension.swift */,
+				4AF5FB742893D1CF00082AA2 /* UITableView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				4AF5FB622893496E00082AA2 /* Endpoint+Method.swift in Sources */,
 				4AF5FB532893409900082AA2 /* Color.swift in Sources */,
 				4AF5FB602893491200082AA2 /* Endpoint+Path.swift in Sources */,
+				4AF5FB752893D1CF00082AA2 /* UITableView+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
