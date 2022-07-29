@@ -12,8 +12,6 @@ final class MyCartController: UITableViewController {
     
     // MARK: - Properties
     
-    private let CONTENT_INSET: CGFloat = 16
-    
     private let viewModel: GroceriesViewModel
     
     private var groceries: [GroceryUIModel] {

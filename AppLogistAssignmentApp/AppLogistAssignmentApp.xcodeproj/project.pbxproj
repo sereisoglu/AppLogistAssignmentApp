@@ -196,11 +196,11 @@
 			isa = PBXGroup;
 			children = (
 				4AF5FB6E289350F900082AA2 /* Collection+Extension.swift */,
+				4AF5FB782893DC1E00082AA2 /* Encodable+Extension.swift */,
 				4AF5FB582893448800082AA2 /* UIView+Extension.swift */,
 				4AF5FB29289333E800082AA2 /* UICollectionView+Extension.swift */,
 				4AF5FB742893D1CF00082AA2 /* UITableView+Extension.swift */,
 				4AF5FB762893D57600082AA2 /* UIEdgeInsets+Extension.swift */,
-				4AF5FB782893DC1E00082AA2 /* Encodable+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -534,6 +534,7 @@
 				DEVELOPMENT_TEAM = 4K634X2CUP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AppLogistAssignmentApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ALAA;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -563,6 +564,7 @@
 				DEVELOPMENT_TEAM = 4K634X2CUP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AppLogistAssignmentApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ALAA;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
