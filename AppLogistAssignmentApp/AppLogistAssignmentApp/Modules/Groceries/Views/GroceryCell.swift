@@ -11,7 +11,7 @@ final class GroceryCell: UICollectionViewCell {
     
     private let downloadableImageView = DownloadableImageView(cornerRadius: 6, borderWidth: 1)
     private let label = Label(type: .body1, weight: .semibold, color: .accentPrimary)
-    private let subLabel = Label(type: .body2, weight: .semibold, color: .tintPrimary)
+    private let subLabel = Label(type: .body2, weight: .medium, color: .tintPrimary)
     
     override init(frame: CGRect) {
         super.init(frame: frame)

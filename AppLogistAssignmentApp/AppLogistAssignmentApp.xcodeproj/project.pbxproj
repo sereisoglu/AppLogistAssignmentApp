@@ -45,6 +45,7 @@
 		4AF5FB712893C4AA00082AA2 /* CheckoutResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB702893C4AA00082AA2 /* CheckoutResponseModel.swift */; };
 		4AF5FB732893CFB500082AA2 /* GroceryUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB722893CFB500082AA2 /* GroceryUIModel.swift */; };
 		4AF5FB752893D1CF00082AA2 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB742893D1CF00082AA2 /* UITableView+Extension.swift */; };
+		4AF5FB772893D57600082AA2 /* UIEdgeInsets+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB762893D57600082AA2 /* UIEdgeInsets+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +86,7 @@
 		4AF5FB702893C4AA00082AA2 /* CheckoutResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutResponseModel.swift; sourceTree = "<group>"; };
 		4AF5FB722893CFB500082AA2 /* GroceryUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryUIModel.swift; sourceTree = "<group>"; };
 		4AF5FB742893D1CF00082AA2 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		4AF5FB762893D57600082AA2 /* UIEdgeInsets+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +193,7 @@
 				4AF5FB582893448800082AA2 /* UIView+Extension.swift */,
 				4AF5FB29289333E800082AA2 /* UICollectionView+Extension.swift */,
 				4AF5FB742893D1CF00082AA2 /* UITableView+Extension.swift */,
+				4AF5FB762893D57600082AA2 /* UIEdgeInsets+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AF5FB772893D57600082AA2 /* UIEdgeInsets+Extension.swift in Sources */,
 				4AF5FB3028933B7A00082AA2 /* DownloadableImageView.swift in Sources */,
 				4AF5FB6B28934B2100082AA2 /* GroceryModel.swift in Sources */,
 				4AF5FB5C2893452D00082AA2 /* AttributedStringUtility.swift in Sources */,

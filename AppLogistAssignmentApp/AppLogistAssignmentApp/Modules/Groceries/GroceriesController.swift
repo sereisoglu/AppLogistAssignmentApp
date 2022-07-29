@@ -159,7 +159,11 @@ extension GroceriesController: UICollectionViewDelegateFlowLayout {
 extension GroceriesController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let grocery = groceries[safe: indexPath.item] else {
+            return
+        }
         
+        viewModel.addGrocery(id: grocery.id)
     }
 }
 

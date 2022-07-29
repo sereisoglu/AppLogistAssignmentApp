@@ -61,7 +61,6 @@ final class MyCartController: UITableViewController {
     
     private func setupTableView() {
         tableView.alwaysBounceVertical = true
-        tableView.contentInset = .allSides(CONTENT_INSET)
         
         tableView.registerCell(MyCartCell.self)
     }
