@@ -32,10 +32,10 @@ final class GroceryCell: UICollectionViewCell {
         imageView.cancelImageDownload()
     }
     
-    func set(grocery: GroceryModel) {
+    func set(grocery: GroceryUIModel) {
         imageView.set(imageUrl: grocery.imageUrl)
-        label.set(text: grocery.formattedPrice)
-        subLabel.set(text: grocery.name ?? "No name")
+        label.set(text: grocery.price)
+        subLabel.set(text: grocery.name)
     }
     
     static func getSize(width: CGFloat) -> CGSize {

@@ -1,5 +1,5 @@
 //
-//  ProductModel.swift
+//  GroceryUIModel.swift
 //  AppLogistAssignmentApp
 //
 //  Created by Saffet Emin Reisoğlu on 7/29/22.
@@ -7,12 +7,11 @@
 
 import Foundation
 
-struct ProductModel: Encodable {
+struct GroceryUIModel {
     var id: String
+    var imageUrl: String?
+    var name: String
+    var price: String
+    var stock: Int
     var amount: Int
 }
-
-// {
-//     "id": "5f52348e919ff34aed98d349",
-//     "amount": 2
-// }

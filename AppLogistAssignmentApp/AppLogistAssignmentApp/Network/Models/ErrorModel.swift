@@ -8,8 +8,9 @@
 import Foundation
 
 struct ErrorModel: Decodable, Error {
-    var key: String?
-    var statusCode: Int?
-    var title: String?
-    var message: String?
+    var error: String?
 }
+
+// {
+//     "error": "Satın alınmak istenen () ürün bulunamadı"
+// }

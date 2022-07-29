@@ -20,7 +20,6 @@
 		4AF5FB3228933C2000082AA2 /* StepperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB3128933C2000082AA2 /* StepperView.swift */; };
 		4AF5FB3428933C4700082AA2 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB3328933C4700082AA2 /* PrimaryButton.swift */; };
 		4AF5FB3928933F2900082AA2 /* MyCartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB3828933F2900082AA2 /* MyCartController.swift */; };
-		4AF5FB3B28933F3300082AA2 /* MyCartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB3A28933F3300082AA2 /* MyCartViewModel.swift */; };
 		4AF5FB3D28933F4000082AA2 /* GroceriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB3C28933F4000082AA2 /* GroceriesViewModel.swift */; };
 		4AF5FB4228933FBC00082AA2 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB4128933FBC00082AA2 /* APIService.swift */; };
 		4AF5FB4728933FF600082AA2 /* GroceryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB4628933FF600082AA2 /* GroceryCell.swift */; };
@@ -43,6 +42,8 @@
 		4AF5FB6B28934B2100082AA2 /* GroceryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB6A28934B2100082AA2 /* GroceryModel.swift */; };
 		4AF5FB6D28934B3600082AA2 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB6C28934B3600082AA2 /* ProductModel.swift */; };
 		4AF5FB6F289350F900082AA2 /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB6E289350F900082AA2 /* Collection+Extension.swift */; };
+		4AF5FB712893C4AA00082AA2 /* CheckoutResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB702893C4AA00082AA2 /* CheckoutResponseModel.swift */; };
+		4AF5FB732893CFB500082AA2 /* GroceryUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5FB722893CFB500082AA2 /* GroceryUIModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,7 +59,6 @@
 		4AF5FB3128933C2000082AA2 /* StepperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperView.swift; sourceTree = "<group>"; };
 		4AF5FB3328933C4700082AA2 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		4AF5FB3828933F2900082AA2 /* MyCartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartController.swift; sourceTree = "<group>"; };
-		4AF5FB3A28933F3300082AA2 /* MyCartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartViewModel.swift; sourceTree = "<group>"; };
 		4AF5FB3C28933F4000082AA2 /* GroceriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceriesViewModel.swift; sourceTree = "<group>"; };
 		4AF5FB4128933FBC00082AA2 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		4AF5FB4628933FF600082AA2 /* GroceryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryCell.swift; sourceTree = "<group>"; };
@@ -81,6 +81,8 @@
 		4AF5FB6A28934B2100082AA2 /* GroceryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryModel.swift; sourceTree = "<group>"; };
 		4AF5FB6C28934B3600082AA2 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		4AF5FB6E289350F900082AA2 /* Collection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
+		4AF5FB702893C4AA00082AA2 /* CheckoutResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutResponseModel.swift; sourceTree = "<group>"; };
+		4AF5FB722893CFB500082AA2 /* GroceryUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryUIModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,7 +177,6 @@
 			isa = PBXGroup;
 			children = (
 				4AF5FB4528933FE500082AA2 /* Views */,
-				4AF5FB3A28933F3300082AA2 /* MyCartViewModel.swift */,
 				4AF5FB3828933F2900082AA2 /* MyCartController.swift */,
 			);
 			path = MyCart;
@@ -252,7 +253,9 @@
 			isa = PBXGroup;
 			children = (
 				4AF5FB6A28934B2100082AA2 /* GroceryModel.swift */,
+				4AF5FB722893CFB500082AA2 /* GroceryUIModel.swift */,
 				4AF5FB6C28934B3600082AA2 /* ProductModel.swift */,
+				4AF5FB702893C4AA00082AA2 /* CheckoutResponseModel.swift */,
 				4AF5FB6828934A6800082AA2 /* ErrorModel.swift */,
 			);
 			path = Models;
@@ -345,8 +348,10 @@
 				4AF5FB2A289333E800082AA2 /* UICollectionView+Extension.swift in Sources */,
 				4AF5FB0E28932DC100082AA2 /* GroceriesController.swift in Sources */,
 				4AF5FB2E28933B6500082AA2 /* Label.swift in Sources */,
+				4AF5FB712893C4AA00082AA2 /* CheckoutResponseModel.swift in Sources */,
 				4AF5FB6D28934B3600082AA2 /* ProductModel.swift in Sources */,
 				4AF5FB4228933FBC00082AA2 /* APIService.swift in Sources */,
+				4AF5FB732893CFB500082AA2 /* GroceryUIModel.swift in Sources */,
 				4AF5FB6928934A6800082AA2 /* ErrorModel.swift in Sources */,
 				4AF5FB4F2893407600082AA2 /* IconImageView.swift in Sources */,
 				4AF5FB4B2893403000082AA2 /* BottomBarView.swift in Sources */,
@@ -361,7 +366,6 @@
 				4AF5FB6F289350F900082AA2 /* Collection+Extension.swift in Sources */,
 				4AF5FB0A28932DC100082AA2 /* AppDelegate.swift in Sources */,
 				4AF5FB3D28933F4000082AA2 /* GroceriesViewModel.swift in Sources */,
-				4AF5FB3B28933F3300082AA2 /* MyCartViewModel.swift in Sources */,
 				4AF5FB592893448800082AA2 /* UIView+Extension.swift in Sources */,
 				4AF5FB5E289348B100082AA2 /* Endpoint.swift in Sources */,
 				4AF5FB642893497700082AA2 /* Endpoint+Headers.swift in Sources */,

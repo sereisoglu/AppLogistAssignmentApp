@@ -22,7 +22,7 @@ final class GroceriesController: UICollectionViewController {
     
     private let viewModel = GroceriesViewModel()
     
-    private var groceries: [GroceryModel] {
+    private var groceries: [GroceryUIModel] {
         return viewModel.getGroceries()
     }
     
@@ -34,14 +34,27 @@ final class GroceriesController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "Groceries"
-        navigationController?.navigationBar.prefersLargeTitles = false
+        view.backgroundColor = Color.backgroundDefault.value
+        collectionView.backgroundColor = Color.backgroundDefault.value
+        collectionView.alwaysBounceVertical = true
         
+        setupNavigationBar()
         setupCollectionView()
         
         viewModel.delegate = self
-        
         viewModel.fetchGroceries()
+    }
+    
+    private func setupNavigationBar() {
+        navigationItem.title = "Groceries"
+        navigationController?.navigationBar.prefersLargeTitles = false
+        
+        navigationItem.rightBarButtonItem = .init(
+            image: Icon.cart.value,
+            style: .plain,
+            target: self,
+            action: #selector(handleRightBarButtonItem)
+        )
     }
     
     private func setupCollectionView() {
@@ -52,6 +65,27 @@ final class GroceriesController: UICollectionViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+// MARK: - Actions
+
+extension GroceriesController {
+    
+    @objc
+    private func handleRightBarButtonItem() {
+        presentToMyCartController()
+    }
+}
+
+// MARK: - Present & Navigate
+
+extension GroceriesController {
+    
+    private func presentToMyCartController() {
+        let controller = MyCartController(viewModel: viewModel)
+        let navigationController = UINavigationController(rootViewController: controller)
+        present(navigationController, animated: true, completion: nil)
     }
 }
 
@@ -105,11 +139,15 @@ extension GroceriesController {
 
 extension GroceriesController: GroceriesViewModelDelegate {
     
-    func setGroceries() {
+    func fetchGroceriesSuccess() {
         collectionView.reloadData()
     }
     
-    func setError(error: ErrorModel) {
+    func fetchGroceriesFailure(error: ErrorModel) {
         
+    }
+    
+    func reload() {
+        collectionView.reloadData()
     }
 }

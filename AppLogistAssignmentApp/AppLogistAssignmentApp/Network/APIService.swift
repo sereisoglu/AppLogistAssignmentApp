@@ -36,10 +36,7 @@ final class APIService {
                 print("Error:", error)
                 
                 completion(.failure(.init(
-                    key: nil,
-                    statusCode: nil,
-                    title: "Internal Error",
-                    message: error.localizedDescription
+                    error: "Internal Error"
                 )))
                 
                 return
@@ -49,10 +46,7 @@ final class APIService {
                 print("Error:", "Nil Response")
                 
                 completion(.failure(.init(
-                    key: nil,
-                    statusCode: nil,
-                    title: "Nil Response",
-                    message: "An error has occurred."
+                    error: "Nil Response"
                 )))
                 
                 return
@@ -68,20 +62,14 @@ final class APIService {
                         print("Error:", error)
                         
                         completion(.failure(.init(
-                            key: nil,
-                            statusCode: response.statusCode,
-                            title: "\(ErrorModel.self) Decode Error",
-                            message: error.localizedDescription
+                            error: "\(ErrorModel.self) Decode Error"
                         )))
                     }
                 } else {
                     print("Error:", "Nil Error")
                     
                     completion(.failure(.init(
-                        key: nil,
-                        statusCode: response.statusCode,
-                        title: "Nil Error",
-                        message: "An error has occurred."
+                        error: "Nil Error"
                     )))
                 }
                 
@@ -97,10 +85,7 @@ final class APIService {
                     print("Error:", error)
                     
                     completion(.failure(.init(
-                        key: nil,
-                        statusCode: response.statusCode,
-                        title: "\(T.self) Decode Error",
-                        message: error.localizedDescription
+                        error: "\(T.self) Decode Error"
                     )))
                 }
             } else {

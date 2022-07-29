@@ -14,13 +14,13 @@ struct GroceryModel: Codable {
     var price: Double?
     var currency: String?
     var stock: Int?
-    
-    var formattedPrice: String {
-        guard let price = price,
-              let currency = currency else {
-            return "n/a"
-        }
-        
-        return String(format: "\(currency)%.02f", price)
-    }
 }
+
+// {
+//     "id": "5f52348e919ff34aed98d349",
+//     "name": "Elma",
+//     "price": 6.99,
+//     "currency": "₺",
+//     "imageUrl": "https://desolate-shelf-18786.herokuapp.com/images/elma.png",
+//     "stock": 5
+// }
