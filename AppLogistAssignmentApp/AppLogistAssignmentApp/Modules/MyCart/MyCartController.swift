@@ -60,7 +60,7 @@ final class MyCartController: UITableViewController {
         navigationController?.navigationBar.prefersLargeTitles = false
         
         let leftButton = UIButton(
-            title: "Delete All",
+            title: "Remove All",
             titleColor: Color.tintRed.value,
             font: .systemFont(ofSize: FontType.body1.value.size),
             target: self,
@@ -133,7 +133,27 @@ extension MyCartController {
     
     @objc
     private func handleLeftBarButtonItem() {
-        viewModel.removeAllGroceries()
+        let alertController = UIAlertController(
+            title: "Remove All!",
+            message: "Are you sure you want to remove all groceries? This action cannot be undone.",
+            preferredStyle: .alert
+        )
+        
+        alertController.addAction(
+            UIAlertAction(
+                title: "Remove",
+                style: .destructive,
+                handler: { [weak self] _ in
+                    self?.viewModel.removeAllGroceries()
+                }
+            )
+        )
+        
+        alertController.addAction(
+            UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        )
+        
+        present(alertController, animated: true, completion: nil)
     }
     
     @objc
@@ -148,8 +168,7 @@ extension MyCartController {
     
     private func presentAlertController(
         title: String,
-        message: String,
-        handler: ((UIAlertAction) -> Void)? = nil
+        message: String
     ) {
         let alertController = UIAlertController(
             title: title,
@@ -158,7 +177,7 @@ extension MyCartController {
         )
         
         alertController.addAction(
-            UIAlertAction(title: "OK", style: .default, handler: handler)
+            UIAlertAction(title: "OK", style: .default)
         )
         
         present(alertController, animated: true, completion: nil)
@@ -205,9 +224,7 @@ extension MyCartController: GroceriesViewModelMyCartDelegate {
         presentAlertController(
             title: "Success!",
             message: data.message ?? "Your order has been completed successfully."
-        ) { [weak self] _ in
-            self?.reload()
-        }
+        )
     }
     
     func postProductsFailure(error: ErrorModel) {

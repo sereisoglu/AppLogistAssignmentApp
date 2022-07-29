@@ -118,8 +118,7 @@ extension GroceriesController {
     
     private func presentAlertController(
         title: String,
-        message: String,
-        handler: ((UIAlertAction) -> Void)? = nil
+        message: String
     ) {
         let alertController = UIAlertController(
             title: title,
@@ -128,7 +127,7 @@ extension GroceriesController {
         )
         
         alertController.addAction(
-            UIAlertAction(title: "OK", style: .default, handler: handler)
+            UIAlertAction(title: "OK", style: .default)
         )
         
         present(alertController, animated: true, completion: nil)
